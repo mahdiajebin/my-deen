@@ -1,0 +1,105 @@
+/* Reset and basic styling */
+/* Define your font stack including Indo-Pakistani Arabic fonts */
+body {
+  font-family: 'Noto Naskh Arabic', 'Scheherazade', 'Amiri', 'Lateef', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+/* App Container */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the app takes up the full height of the viewport */
+  background-color: #fff;
+  width: 100%;
+}
+
+/* Header */
+.app-header {
+  background-color: #65977E;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.app-header h1 {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+.app-header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app-header nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.app-header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.app-header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.app-main {
+  flex: 1; /* Allow the main content to grow and take up remaining space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #65977E;
+  color: #fff;
+  font-size: 0.9rem;
+  width: 100%;
+  flex-shrink: 0; /* Prevent footer from shrinking */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .app-header nav ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .app-header nav ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+}

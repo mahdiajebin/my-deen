@@ -1,0 +1,38 @@
+/* Define your font stack including Indo-Pakistani Arabic fonts */
+body {
+    font-family: 'Noto Naskh Arabic', 'Scheherazade', 'Amiri', 'Lateef', serif;
+  }
+  
+.dua-home {
+    padding: 32px;
+    text-align: center;
+}
+
+.search-container {
+    margin-bottom: 16px;
+}
+
+.dua-tiles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    justify-items: center;
+}
+
+@media (max-width: 767px) {
+    .dua-tiles-container {
+        grid-template-columns: 1fr; /* One tile per row on phones */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .dua-tiles-container {
+        grid-template-columns: repeat(2, 1fr); /* Two tiles per row on iPads */
+    }
+}
+
+@media (min-width: 1025px) {
+    .dua-tiles-container {
+        grid-template-columns: repeat(2, 1fr); /* Two tiles per row on laptops and larger screens */
+    }
+}
