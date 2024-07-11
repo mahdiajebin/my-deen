@@ -1,7 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+# Project In Progress 
+# Link of Deployment to Github pages: https://mahdiajebin.github.io/my-deen
 ## Available Scripts
 
 In the project directory, you can run:
