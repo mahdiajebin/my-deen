@@ -7,7 +7,7 @@ import DuaHome from './components/DuaHome/DuaHome';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/my-deen">
       <div className="app">
         <header className="app-header">
           <h1>My Deen</h1>
