@@ -26,7 +26,7 @@ const Home = () => {
           {dua ? (
             <div>
               <h3>{dua.duaTitle}</h3>
-              <p><strong>Arabic:</strong> {dua.duaArabic}</p>
+              <p className='arabic-text-font'><strong>Arabic:</strong> {dua.duaArabic}</p>
               <p><strong>Transliteration:</strong> {dua.duaTransliteration}</p>
               <p><strong>Translation:</strong> {dua.duaTranslation}</p>
               <p><strong>Citation:</strong> {dua.duaCitation}</p>

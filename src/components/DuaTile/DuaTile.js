@@ -5,7 +5,7 @@ const DuaTile = ({ dua, onClick }) => {
     return (
         <div className="dua-tile" onClick={onClick}>
             <h2 className="dua-title">{dua.duaTitle}</h2>
-            <p className="arabic">{dua.duaArabic}</p>
+            <p className="arabic arabic-text-font">{dua.duaArabic}</p>
             <p className="transliteration">{dua.duaTransliteration}</p>
             <p className="translation">{dua.duaTranslation}</p>
             <footer className="citation">{dua.duaCitation}</footer>

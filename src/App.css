@@ -110,4 +110,8 @@ html, body {
   .app-header h1 {
     font-size: 1.5rem;
   }
+  .arabic-text-font {
+    font-family: 'IndoPak', sans-serif;
+  }
+  
 }

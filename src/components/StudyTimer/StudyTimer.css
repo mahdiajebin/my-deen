@@ -29,6 +29,10 @@ body {
 .study-timer-header .arabic-text-font {
   font-size: 2rem;
 }
+.arabic-text-font {
+  font-family: 'IndoPak', sans-serif;
+  font-size: 2rem;
+}
 
 .study-timer-main-content {
   display: flex;

@@ -25,4 +25,7 @@
     font-size: 1em;
     color: #666;
 }
+.arabic-text-font {
+    font-family: 'IndoPak', sans-serif;
+  }
 

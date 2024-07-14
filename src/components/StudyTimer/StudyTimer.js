@@ -81,7 +81,7 @@ const StudyTimer = () => {
 
   return (
     <div className="study-timer-container">
-      <p>بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ</p>
+      <p className="arabic-text-font">بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ</p>
       <div className="study-timer-header">
         {studyDua && (
           <>

@@ -122,6 +122,9 @@ html, body {
 .home-section.dua {
   background-color: #e0f7fa;
 }
+.arabic-text-font {
+  font-family: 'IndoPak', sans-serif;
+}
 
 button {
   background-color: #65977E;
