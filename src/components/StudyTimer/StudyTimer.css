@@ -10,11 +10,10 @@ body {
 }
 
 .study-timer-header {
-  background-color: #f5f5f5;
+  background-color: white;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-family: 'IndoPak', sans-serif;
 }
 
@@ -38,7 +37,7 @@ body {
 }
 
 .timer {
-  background: linear-gradient(to right, #65977E, #1f9063); 
+  background: linear-gradient(to right, #D0F3DF, #81f763); 
   padding: 20px;
   margin: 10px auto; /* Auto margin for top and bottom, centered horizontally */
   border-radius: 8px;
@@ -52,7 +51,7 @@ body {
 .timer h1 {
   font-size: 9rem; /* Large font size for the clock */
   margin-bottom: 10px;
-  color: #c2cdc5; /* Main website color for the clock */
+  color: #0a1d12; /* Main website color for the clock */
   font-family: Arial, sans-serif; /* Choose a suitable font family */
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
@@ -84,14 +83,14 @@ body {
   padding: 8px;
   font-size: 1rem;
   border-radius: 5px;
-  border: 1px solid #65977E;
+  border: 1px solid #D0F3DF;
   margin-right: 10px;
   max-width: 100%; /* Ensure dropdowns expand to fit container */
 }
 
 .timer-controls button {
-  background-color: #65977E;
-  color: #fff;
+  background-color: #D0F3DF;
+  color: rgb(67, 63, 63); /*  text color */
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -103,11 +102,11 @@ body {
 }
 
 .timer-controls button:hover {
-  background-color: #65977E;
+  background-color: #D0F3DF;
 }
 .timer-controls .pause-button {
   background-color: #9c1a09; /* Red color for the button */
-  color: white; /* White text color */
+  color: rgb(67, 63, 63); /*  text color */
   border: none; /* Remove default button border */
   padding: 10px 20px; /* Padding for the button */
   border-radius: 5px; /* Rounded corners */
@@ -118,4 +117,9 @@ body {
 
 .timer-controls .pause-button:hover {
   background-color: #be1e0f; /* Darker red color on hover */
+}
+
+
+.timer-controls .naturebutton {
+  background-color: #010104; /* Darker red color on hover */
 }

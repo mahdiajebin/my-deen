@@ -28,6 +28,14 @@ html, body {
   width: 100%;
 }
 
+/* Style for the app name */
+.app-name {
+  font-family: 'Georgia', serif; /* Example of a serif font */
+  font-size: 24px; /* Adjust font size as needed */
+  color: #333; /* Text color */
+  text-decoration: none; /* Remove underline if it's a link */
+}
+
 /* Header */
 .app-header {
   background-color: #65977E;
@@ -75,7 +83,7 @@ html, body {
 .app-footer {
   text-align: center;
   padding: 10px;
-  background-color: #65977E;
+  background-color: #D0F3DF;
   color: #fff;
   font-size: 0.9rem;
   width: 100%;

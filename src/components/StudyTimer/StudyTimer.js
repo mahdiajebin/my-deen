@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './StudyTimer.css';
 import duas from '../../Data/Duas'; 
-import DuaTile from '../DuaTile/DuaTile'; 
+import NatureSound from '../NatureSound/NatureSound';
 
 const StudyTimer = () => {
-  const [timeOptions] = useState([10, 15, 20, 25, 30, 35,40,45, 50, 55, 60]); // Time options in minutes
+  const [timeOptions] = useState([10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]); // Time options in minutes
   const [selectedTime, setSelectedTime] = useState(25); // Selected time in minutes
   const [time, setTime] = useState(selectedTime * 60); // Time in seconds
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [studyDua, setStudyDua] = useState(null); // State to hold the study dua
-
-
+  const videoId = '_hdYGv4KuAU'; // Video ID for nature sound
 
   // Function to fetch dua by duaTitle
   const fetchDuaByTitle = (title) => {
@@ -22,7 +21,7 @@ const StudyTimer = () => {
   // Fetch study dua on component mount
   useEffect(() => {
     if (duas.length > 0) {
-      const fetchedDua = fetchDuaByTitle('Dua for Studying'); // Replace 'Your Dua Title Here' with the actual title
+      const fetchedDua = fetchDuaByTitle('Dua for Studying'); // Replace with your dua title
       setStudyDua(fetchedDua);
     }
   }, []); // Empty dependency array ensures this runs once on mount
@@ -40,7 +39,7 @@ const StudyTimer = () => {
     setIsPaused(false);
   };
 
-  // Handle handlePause button click
+  // Handle pause button click
   const handlePause = () => {
     setIsActive(false);
     setIsPaused(true);
@@ -49,8 +48,8 @@ const StudyTimer = () => {
   // Handle reset button click
   const handleReset = () => {
     setTime(selectedTime * 60); // Reset time to selected time
-    setIsActive(false);
-    setIsPaused(true);
+    setIsActive(false); // Deactivate the timer
+    setIsPaused(true); // Pause the timer
   };
 
   // Effect to handle timer logic
@@ -82,17 +81,15 @@ const StudyTimer = () => {
 
   return (
     <div className="study-timer-container">
-          <h1>بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ</h1>
-
+      <p>بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ</p>
       <div className="study-timer-header">
         {studyDua && (
           <>
             <h3>{studyDua.duaTitle}</h3>
-            <p className='arabic-text-font'>{studyDua.duaArabic}</p>
+            <p className="arabic-text-font">{studyDua.duaArabic}</p>
             <p>{studyDua.duaTransliteration}</p>
             <p>{studyDua.duaTranslation}</p>
             <p>{studyDua.duaCitation}</p>
-
           </>
         )}
       </div>
@@ -113,20 +110,25 @@ const StudyTimer = () => {
               ))}
             </select>
             {!isActive ? (
-              <button onClick={handleStart}>Start Timer</button>
+              <button className="btn btn-primary" onClick={handleStart}>
+                Start Timer
+              </button>
             ) : (
-              <button className="pause-button" onClick={handlePause}>Pause Timer</button>
+              <button className="btn btn-danger" onClick={handlePause}>
+                Pause Timer
+              </button>
             )}
+            <button className="btn btn-secondary" onClick={handleReset}>
+              Reset Timer
+            </button>
+            <NatureSound videoId={videoId} opts={{ autoplay: 0 }} />
+
           </div>
-          <button onClick={handleReset}>Reset Timer</button>
+          {/* Render NatureSound component */}
         </div>
       </div>
     </div>
   );
-  // toDo
-  //add a feature that shows something cool after timer is done. 
-  //activity to do if losing focus. 
-  //modify css to make it more asthetic
 };
 
 export default StudyTimer;
