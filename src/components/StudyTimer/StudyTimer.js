@@ -1,58 +1,52 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './StudyTimer.css';
 import duas from '../../Data/Duas'; 
 import NatureSound from '../NatureSound/NatureSound';
 
 const StudyTimer = () => {
-  const [timeOptions] = useState([10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]); // Time options in minutes
-  const [selectedTime, setSelectedTime] = useState(25); // Selected time in minutes
-  const [time, setTime] = useState(selectedTime * 60); // Time in seconds
+  const [timeOptions] = useState([10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]);
+  const [selectedTime, setSelectedTime] = useState(25);
+  const [time, setTime] = useState(selectedTime * 60);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
-  const [studyDua, setStudyDua] = useState(null); // State to hold the study dua
-  const videoId = '_hdYGv4KuAU'; // Video ID for nature sound
+  const [studyDua, setStudyDua] = useState(null);
+  const videoId = '_hdYGv4KuAU';
 
-  // Function to fetch dua by duaTitle
   const fetchDuaByTitle = (title) => {
     const foundDua = duas.find((dua) => dua.duaTitle === title);
     return foundDua || null;
   };
 
-  // Fetch study dua on component mount
   useEffect(() => {
     if (duas.length > 0) {
-      const fetchedDua = fetchDuaByTitle('Dua for Studying'); // Replace with your dua title
+      const fetchedDua = fetchDuaByTitle('Dua for Studying');
       setStudyDua(fetchedDua);
     }
-  }, []); // Empty dependency array ensures this runs once on mount
+  }, []);
 
-  // Format time in MM:SS format
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
-  // Handle start button click
   const handleStart = () => {
     setIsActive(true);
     setIsPaused(false);
   };
 
-  // Handle pause button click
   const handlePause = () => {
     setIsActive(false);
     setIsPaused(true);
   };
 
-  // Handle reset button click
   const handleReset = () => {
-    setTime(selectedTime * 60); // Reset time to selected time
-    setIsActive(false); // Deactivate the timer
-    setIsPaused(true); // Pause the timer
+    setTime(selectedTime * 60);
+    setIsActive(false);
+    setIsPaused(true);
   };
 
-  // Effect to handle timer logic
   useEffect(() => {
     let interval;
     if (isActive && !isPaused) {
@@ -66,23 +60,22 @@ const StudyTimer = () => {
           }
           return prevTime - 1;
         });
-      }, 1000); // Update every second (1000 milliseconds)
+      }, 1000);
     } else {
-      clearInterval(interval); // Clear interval if not active or paused
+      clearInterval(interval);
     }
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => clearInterval(interval);
   }, [isActive, isPaused]);
 
-  // Effect to update time when selectedTime changes
   useEffect(() => {
     setTime(selectedTime * 60);
-    setIsPaused(true); // Pause timer when selectedTime changes
+    setIsPaused(true);
   }, [selectedTime]);
 
   return (
-    <div className="study-timer-container">
-      <p className="arabic-text-font">بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ</p>
-      <div className="study-timer-header">
+    <div className="study-timer-container container">
+      <p className="arabic-text-font text-center">بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ</p>
+      <div className="study-ttimer-header text-center">
         {studyDua && (
           <>
             <h3>{studyDua.duaTitle}</h3>
@@ -93,38 +86,37 @@ const StudyTimer = () => {
           </>
         )}
       </div>
-      <div className="study-timer-main-content">
+      <div className="study-timer-main-content text-center">
         <div className="timer">
           <h1>{formatTime(time)}</h1>
         </div>
-        <div className="timer-controls">
-          <div>
-            <select
-              value={selectedTime}
-              onChange={(e) => setSelectedTime(parseInt(e.target.value))}
-            >
-              {timeOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option} minutes
-                </option>
-              ))}
-            </select>
+        <div className="timer-controls d-flex justify-content-center align-items-center">
+          <select
+            value={selectedTime}
+            onChange={(e) => setSelectedTime(parseInt(e.target.value))}
+            className="form-select mb-3 custom-select-width me-2"
+          >
+            {timeOptions.map((option) => (
+              <option key={option} value={option}>
+                {option} minutes
+              </option>
+            ))}
+          </select>
+          <div className="d-flex">
             {!isActive ? (
-              <button className="btn btn-primary" onClick={handleStart}>
+              <button className="btn btn-primary mx-2" onClick={handleStart}>
                 Start Timer
               </button>
             ) : (
-              <button className="btn btn-danger" onClick={handlePause}>
+              <button className="btn btn-danger mx-2" onClick={handlePause}>
                 Pause Timer
               </button>
             )}
-            <button className="btn btn-secondary" onClick={handleReset}>
+            <button className="btn btn-secondary mx-2" onClick={handleReset}>
               Reset Timer
             </button>
-            <NatureSound videoId={videoId} opts={{ autoplay: 0 }} />
-
           </div>
-          {/* Render NatureSound component */}
+          <NatureSound videoId={videoId} opts={{ autoplay: 0 }} />
         </div>
       </div>
     </div>
