@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
-import duas from '../../Data/Duas'; // Adjust path as necessary
-import DuaTile from '../DuaTile/DuaTile'; // Adjust path as necessary
-import Modal from '../Modal/Modal'; // Adjust path as necessary
-import './DuaHome.css'; // Import the CSS file for styling
+import React, { useState, useEffect } from 'react';
+import duas from '../../Data/Duas'; 
+import QuranicDua from '../../Data/QuranicDua'; 
+import PropheticDua from '../../Data/PropheticDua'; 
+import SahabiDua from '../../Data/SahabiDua'; 
+import DuaTile from '../DuaTile/DuaTile';
+import Modal from '../Modal/Modal'; 
+import './DuaHome.css'; 
+import MainContent from '../MainContent/MainContent';
 
 const DuaHome = () => {
     const [selectedDua, setSelectedDua] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredDuas, setFilteredDuas] = useState(duas);
+    const [selectedCategory, setSelectedCategory] = useState('All');
+
+    useEffect(() => {
+        filterDuas(searchTerm, selectedCategory);
+    }, [searchTerm, selectedCategory]);
 
     const handleTileClick = (dua) => {
         setSelectedDua(dua);
@@ -20,14 +29,26 @@ const DuaHome = () => {
     const handleSearchChange = (e) => {
         const term = e.target.value.trim().toLowerCase();
         setSearchTerm(term);
-        filterDuas(term);
     };
 
-    const filterDuas = (term) => {
-        if (!term) {
-            setFilteredDuas(duas);
-        } else {
-            const filtered = duas.filter((dua) => {
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+    };
+
+    const filterDuas = (term, category) => {
+        let filtered = duas;
+        if (category === 'Quranic Dua') {
+            filtered = QuranicDua;
+        }
+        if (category === 'Prophetic Dua') {
+            filtered = PropheticDua;
+        }
+        if (category === 'Sahabi Dua') {
+            filtered = SahabiDua;
+        }
+        // Add other category filters as needed
+        if (term) {
+            filtered = filtered.filter((dua) => {
                 return (
                     dua.duaTitle.toLowerCase().includes(term) ||
                     dua.duaArabic.toLowerCase().includes(term) ||
@@ -35,14 +56,14 @@ const DuaHome = () => {
                     dua.duaTranslation.toLowerCase().includes(term)
                 );
             });
-            setFilteredDuas(filtered);
         }
+        setFilteredDuas(filtered);
     };
 
     return (
+        
         <div className="dua-home">
-                        <h1> Dua Collection </h1> <br></br>
-
+            <h1> Dua Collection </h1> 
             <div className="search-container">
                 <input
                     type="text"
@@ -51,6 +72,8 @@ const DuaHome = () => {
                     onChange={handleSearchChange}
                 />
             </div>
+            <MainContent onCategoryClick={handleCategoryClick} />
+
             <div className="dua-tiles-container">
                 {filteredDuas.length > 0 ? (
                     filteredDuas.map((dua, index) => (
@@ -75,9 +98,7 @@ const DuaHome = () => {
                     </div>
                 )}
             </Modal>
-
         </div>
-        
     );
 };
 

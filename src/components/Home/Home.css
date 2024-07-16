@@ -77,8 +77,8 @@ html, body {
 .app-footer {
   text-align: center;
   padding: 10px;
-  background-color: ##5977E;
-  color: #fff;
+  background-color:#D0F3DF;
+  color:hwb(263 68% 25%);
   font-size: 0.9rem;
   width: 100%;
   flex-shrink: 0; /* Prevent footer from shrinking */

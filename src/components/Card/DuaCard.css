@@ -1,0 +1,57 @@
+.d-card {
+    background: linear-gradient( to right, #D0F3DF, #50a4b5);
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(157, 86, 86, 0.1);
+    margin: 10px; /* Add space between cards */
+    color: white; /* Change text color for better contrast */
+  }
+  
+  .d-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .d-card p {
+    font-size: 0.9em;
+    color: #dccece;
+  }
+
+  
+  :root {
+    --card-height: 20vh;
+    --card-width: calc(var(--card-height) / .6);
+  }
+  
+  .card {
+    background: linear-gradient( #D0F3DF, #3dacc2); /* Gradient background */
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 3px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-size: 1.5em;
+    color: rgb(30, 72, 162);
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .card:hover {
+    color: rgb(5, 56, 80);
+    transition: color 0s;
+  }
+  
+  .card:hover:before,
+  .card:hover:after {
+    animation: none;
+    opacity: 0;
+  }
+  
+
+  

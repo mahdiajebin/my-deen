@@ -1,0 +1,37 @@
+.main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .dua-section {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    margin-bottom: 20px;
+  }
+  
+  .dua-section-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px; /* Limit maximum width of the grid */
+    margin: 0 auto; /* Center align grid within its container */
+
+}
+  @media (max-width: 767px) {
+    .dua-section-cards {
+      grid-template-columns: 1fr; /* One column on smaller screens */
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .dua-section-cards {
+      grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    .dua-section-cards {
+      grid-template-columns: repeat(4, 1fr); /* Three columns on larger screens */
+    }
+  }
+  
