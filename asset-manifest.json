@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/my-deen/static/css/main.f1a9664e.css",
-    "main.js": "/my-deen/static/js/main.5a0d4e9c.js",
+    "main.css": "/my-deen/static/css/main.cd8eaaa0.css",
+    "main.js": "/my-deen/static/js/main.bb25256f.js",
     "static/js/453.f5477621.chunk.js": "/my-deen/static/js/453.f5477621.chunk.js",
     "index.html": "/my-deen/index.html",
-    "main.f1a9664e.css.map": "/my-deen/static/css/main.f1a9664e.css.map",
-    "main.5a0d4e9c.js.map": "/my-deen/static/js/main.5a0d4e9c.js.map",
+    "main.cd8eaaa0.css.map": "/my-deen/static/css/main.cd8eaaa0.css.map",
+    "main.bb25256f.js.map": "/my-deen/static/js/main.bb25256f.js.map",
     "453.f5477621.chunk.js.map": "/my-deen/static/js/453.f5477621.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1a9664e.css",
-    "static/js/main.5a0d4e9c.js"
+    "static/css/main.cd8eaaa0.css",
+    "static/js/main.bb25256f.js"
   ]
 }
